@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Output from './components/Output';
 import Title from './components/Title';
+import Form from './components/Form';
 import './App.css';
 
 class App extends Component {
@@ -19,14 +20,13 @@ class App extends Component {
         this.getSampleText();
     }
 
-
     getSampleText = async (e) => {
         // e.preventDefault();
         try {
             const API_CALL = await fetch(`https://baconipsum.com/api/?type=${this.state.type}&paras=${this.state.paras}&start-with-lorem=${this.state.startWithLorem}&format=${this.state.format}`);
             if (API_CALL.ok) {
                 const jsonResponse = await API_CALL.json();
-                console.log(jsonResponse.length);
+                // console.log(jsonResponse.length);
                 this.setState({
                     text: jsonResponse,
                 })
@@ -42,9 +42,12 @@ class App extends Component {
         return (
             <div className="App container">
                 <Title />
+                <Form
+                    type={this.state.type}
+                    paras={this.state.paras}
+                    startWithLorem={this.state.startWithLorem} />
                 <Output
-                    text={this.state.text}
-                />
+                    text={this.state.text} />
             </div>
         );
     }
