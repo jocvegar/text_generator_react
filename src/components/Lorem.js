@@ -17,9 +17,9 @@ class Lorem extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="form-group">
 				<label htmlFor="lorem">Lorem or No Lorem</label>
-				<select className="form-control" id="lorem" onChange={this.onChange}>
+				<select className="form-control" id="lorem" value={this.props.value} onChange={this.onChange}>
 					<option value="1">Start with Lorem</option>
 					<option value="0">Just Meat</option>
 				</select>

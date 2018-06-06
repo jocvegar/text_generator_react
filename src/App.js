@@ -16,10 +16,12 @@ class App extends Component {
             startWithLorem: 1,
             format: 'json',
             text: '',
+            // field: {},
         }
         this.showType = this.showType.bind(this);
         this.changeParas = this.changeParas.bind(this);
         this.changeLorem = this.changeLorem.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
     }
 
     componentWillMount() {
@@ -56,26 +58,45 @@ class App extends Component {
         this.setState({startWithLorem: lorem}, this.getSampleText);
     }
 
+    // handleChange = updatedValue => {
+    //     this.setState({
+    //         fields: {
+    //             ...this.state.fields,
+    //             ...updatedValue
+    //         }
+    //     }, this.getSampleText);
+    // }
+
     render() {
+        const barStyle = {
+            width: '100%'
+        }
+
         return (
             <div className="App container">
                 <Title />
-                <hr/>
+                {/*<Form value={this.state.fields} onChange={this.handleChange} />*/}
                 <form>
                     <fieldset>
-                    <legend>Choose your cut</legend>
-                        <div className="form-group">
-                            <Type value={this.state.type} onChange={this.showType} />
-                        </div>
-                        <div className="form-group">
-                            <Paras value={this.state.paras} onChange={this.changeParas} />
-                        </div>
-                        <div className="form-group">
-                            <Lorem value={this.state.startWithLorem} onChange={this.changeLorem} />
+                        <legend>Choose your cut</legend>
+                        <div className="row">
+                            <div className="col-md-4">
+                                <Type value={this.state.type} onChange={this.showType} />
+                            </div>
+                            <div className="col-md-4">
+                                <Paras value={this.state.paras} onChange={this.changeParas} />
+                            </div>
+                            <div className="col-md-4">
+                                <Lorem value={this.state.startWithLorem} onChange={this.changeLorem} />
+                            </div>
                         </div>
                     </fieldset>
                 </form>
-
+                <hr/>
+                <div className="progress">
+                  <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={barStyle} ariaValuenow="100" ariaValuemin="0" ariaValuemax="100"></div>
+                </div>
+                <hr/>
                 <Output
                     text={this.state.text} />
             </div>

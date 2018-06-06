@@ -17,9 +17,9 @@ class Type extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="form-group">
 				<label htmlFor="filler">Filler or no Filler</label>
-				<select className="form-control" id="filler" onChange={this.onChange}>
+				<select className="form-control" id="filler" value={this.props.value} onChange={this.onChange}>
 					<option value="all-meat">All Meat</option>
 					<option value="meat-and-filler">Some Lorem filler</option>
 				</select>

@@ -17,12 +17,24 @@ class Paras extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="form-group">
 				<label htmlFor="paras">How many strips?</label>
-				<input type="number" id="paras" value={this.state.value} defaultValue="5" onChange={this.onChange} min={1} max={10} />
+				<select className="form-control" id="paras" value={this.props.value} onChange={this.onChange}>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="9">9</option>
+				</select>
 			</div>
 		);
 	}
 }
 
 export default Paras;
+// <input type="number" id=s"paras" value={this.state.value} defaultValue="5" onChange={this.onChange} min={1} max={10} />
